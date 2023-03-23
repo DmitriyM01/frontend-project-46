@@ -14,7 +14,7 @@ publish:
 	npm publish --dry-run
 
 test-coverage:
-	npm test -- --coverage
+	npm test -- --coverage --coverageProvider=v8
 
 r:
 	git add .

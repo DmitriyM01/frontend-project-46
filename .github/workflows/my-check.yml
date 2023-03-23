@@ -16,10 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Use node js ${{ matrix.node-version }}
-        uses: actions/node-setup@v3
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
       - run: make install
       - run: make lint
       - run: make test

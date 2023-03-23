@@ -12,3 +12,8 @@ lint:
 	
 publish:
 	npm publish --dry-run
+
+r:
+	git add .
+	git commit -m 'fix'
+	git push

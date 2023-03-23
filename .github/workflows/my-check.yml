@@ -14,9 +14,9 @@ jobs:
         node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use node js ${{ matrix.node-version }}
-        uses: actions/node-setup@v2
+        uses: actions/node-setup@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'

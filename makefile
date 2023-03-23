@@ -13,6 +13,9 @@ lint:
 publish:
 	npm publish --dry-run
 
+coverage:
+	npm test -- --coverage
+
 r:
 	git add .
 	git commit -m 'fix'

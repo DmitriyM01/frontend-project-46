@@ -4,15 +4,15 @@
   "description": "[![Actions Status](https://github.com/DmitriyM01/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/DmitriyM01/frontend-project-46/actions)",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
   "scripts": {
     "test": "npx jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DmitriyM01/frontend-project-46.git"
-  },
-  "bin": {
-    "gendiff": "bin/gendiff.js"
   },
   "author": "",
   "license": "ISC",

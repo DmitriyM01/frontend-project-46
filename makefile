@@ -2,8 +2,7 @@ install:
 	npm ci
 
 check:
-	node bin/gendiff.js f1.json f2.json
-
+	node bin/gendiff.js f1.yaml f2.json
 test:
 	npm test
 

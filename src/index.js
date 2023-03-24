@@ -1,20 +1,10 @@
-import fs from 'fs';
-import path from 'path';
 import _ from 'lodash';
-
-  // функция getData() принимает путь, а возвращает данные из файла по этому пути
-const getData = (file) => {
-  // функция принимает путь и возвращает его абсолютную версию
-  const isAbsolute = (f) => (path.isAbsolute(f) ? f : path.resolve(process.cwd(), (`__fixtures__/${f}`)));
-
-  const data = fs.readFileSync(isAbsolute(file), 'utf-8');
-  return data;
-};
+import getData from './parsers.js';
 
 // функция genDiff принимает пути до файлов, а возвращает различия между данными этих файлов
 export default (filepath1, filepath2) => { // это функция genDIff
-  const data1 = JSON.parse(getData(filepath1));
-  const data2 = JSON.parse(getData(filepath2));
+  const data1 = getData(filepath1);
+  const data2 = getData(filepath2);
 
   const keys1 = Object.keys(data1);
   const keys2 = Object.keys(data2);

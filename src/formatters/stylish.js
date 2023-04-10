@@ -20,41 +20,26 @@ const stringify = (node, depth = 1) => {
   ].join('\n');
 };
 
-const makeStylish = (AST, depth = 1) => {
-  const indent = '    ';
-  const currentIndent = indent.repeat(depth - 1);
-  const indentForBracket = indent.repeat(depth - 1);
-
-    const result = ['{'];
-    AST.map((element) => {
-        switch (element.status) {
-          case 'nested':
-            result.push(`${currentIndent}    ${element.key}: ${makeStylish(element.value, depth + 1)}`);
-            break;
-          case 'changed':
-            result.push(`${currentIndent}  - ${element.key}: ${stringify(element.value[0], depth + 1)}\n${currentIndent}  + ${element.key}: ${stringify(element.value[1], depth + 1)}`);
-            break;
-          case 'unchanged':
-            result.push(`${currentIndent}    ${element.key}: ${stringify(element.value, depth + 1)}`);
-            break;
-          case 'added':
-            result.push(`${currentIndent}  + ${element.key}: ${stringify(element.value, depth + 1)}`);
-            break;
-          default:
-            result.push(`${currentIndent}  - ${element.key}: ${stringify(element.value, depth + 1)}`);
-        }
-        return true;
-    });
-    result.push(`${indentForBracket}}`);
-    return result.join('\n');
+const makeStylish = (tree) => {
+  const iter = (node, depth = 1) => {
+    const indent = '    ';
+    const currentIndent = indent.repeat(depth - 1);
+      switch (node.status) {
+        case 'root':
+          return `{${node.children.map((child) => iter(child)).join('')}\n}`;
+        case 'nested':
+          return `\n${currentIndent}    ${node.key}: {${node.children.map((child) => iter(child, depth + 1)).join('')}\n    ${currentIndent}}`;
+        case 'changed':
+          return `\n${currentIndent}  - ${node.key}: ${stringify(node.value[0], depth + 1)}\n${currentIndent}  + ${node.key}: ${stringify(node.value[1], depth + 1)}`;
+        case 'unchanged':
+          return `\n${currentIndent}    ${node.key}: ${stringify(node.value, depth + 1)}`;
+        case 'added':
+          return `\n${currentIndent}  + ${node.key}: ${stringify(node.value, depth + 1)}`;
+        default:
+          return `\n${currentIndent}  - ${node.key}: ${stringify(node.value, depth + 1)}`;
+      }
+  };
+    return iter(tree);
 };
 
 export default makeStylish;
-
-// import makeAST from "../makeAST.js";
-// import parser from "../parsers.js";
-
-// const data11 = parser('../__fixtures__/f1.json');
-// const data21 = parser('../__fixtures__/f2.json');
-// const oo = makeAST(data11, data21);
-// console.log(makeStylish(oo));

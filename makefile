@@ -2,7 +2,7 @@ install:
 	npm ci
 
 check:
-	node bin/gendiff.js f1.json f2.json
+	node bin/gendiff.js -f plain f1.json f2.json
 test:
 	npm test
 
@@ -14,8 +14,3 @@ publish:
 
 test-coverage:
 	npm test -- --coverage --coverageProvider=v8
-
-r:
-	git add .
-	git commit -m 'fix'
-	git push

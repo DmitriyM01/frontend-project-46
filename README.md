@@ -17,4 +17,4 @@
     - gendiff -h
 
 Для запуска: 
-    - gendiff [-f<format>] file1 file2
+    - gendiff ['-f<format>'] file1 file2

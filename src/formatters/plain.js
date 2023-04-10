@@ -32,13 +32,4 @@ const makePlain = (tree) => {
     return formaredResult(iter(tree).flat(Infinity)).join('\n');
 };
 
-// import makeAST from "../makeAST.js";
-// import parser from "../parsers.js";
-
-// const data11 = parser('../__fixtures__/f1.json');
-// const data21 = parser('../__fixtures__/f2.json');
-// const oo = makeAST(data11, data21);
-// // console.log(oo);
-// console.log(makePlain(oo));
-
 export default makePlain;

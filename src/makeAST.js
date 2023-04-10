@@ -1,5 +1,4 @@
 import _ from 'lodash';
-// import parser from './parsers.js';
 
 const makeChildren = (data1, data2) => {
     const keysOne = Object.keys(data1);
@@ -27,10 +26,5 @@ const makeChildren = (data1, data2) => {
 };
 
 const makeAST = (path1, path2) => ({ status: 'root', children: makeChildren(path1, path2) });
-
-// const data11 = parser('../__fixtures__/f1.json');
-// const data21 = parser('../__fixtures__/f2.json');
-// const oo = makeAST(data11, data21);
-// console.log(oo);
 
 export default makeAST;

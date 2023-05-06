@@ -6,6 +6,11 @@ check:
 test:
 	npm test
 
+r:
+	git add .
+	git commit -m 'trying find errors'
+	git push
+
 lint:
 	npx eslint .
 	

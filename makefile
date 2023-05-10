@@ -6,6 +6,9 @@ check:
 test:
 	npm test
 
+test-coverage:
+	npm test -- --coverage --coverageProvider=v8
+
 r:
 	git add .
 	git commit -m 'trying find errors'

@@ -3,6 +3,7 @@ install:
 
 check:
 	node bin/gendiff.js -f json f1.json f2.json
+
 test:
 	npm test
 

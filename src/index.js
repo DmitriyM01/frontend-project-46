@@ -6,7 +6,6 @@ import formatter from './formatters/index.js';
 const genDIff = (filepath1, filepath2, format = 'stylish') => {
   const data1 = parser(filepath1);
   const data2 = parser(filepath2);
-  console.log(format);
 
   const AST = makeAST(data1, data2);
   return formatter(AST, format);

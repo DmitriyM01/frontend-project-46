@@ -6,5 +6,5 @@ import genDiff from '../src/index.js';
 const result = fs.readFileSync(path.resolve(process.cwd(), ('__fixtures__/result.json')), 'utf-8');
 
 test('json', () => {
-    expect(genDiff('f1.json', 'f2.json', 'json')).toBe(result);
+  expect(genDiff('f1.json', 'f2.json', 'json')).toBe(result);
 });

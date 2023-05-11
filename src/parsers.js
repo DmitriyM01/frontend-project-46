@@ -14,6 +14,4 @@ const parser = (file) => {
     return extension !== '.json' ? yaml.load(fs.readFileSync(normalizePath, 'utf-8')) : JSON.parse(fs.readFileSync(normalizePath, 'utf-8'));
 };
 
-console.log(parser('f1.json'));
-
 export default parser;

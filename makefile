@@ -11,7 +11,7 @@ test-coverage:
 
 r:
 	git add .
-	git commit -m 'trying find errors'
+	git commit -m 'qfix'
 	git push
 
 lint:

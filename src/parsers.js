@@ -10,9 +10,10 @@ const getName = (filename) => path.basename(filename);
 const parser = (file) => {
     const name = getName(file);
     const extension = getExtension(name);
-    const p = `${process.cwd()}`;
-    // path.resolve(process.cwd(), (`__fixtures__/${file}`));
-    return extension !== '.json' ? yaml.load(fs.readFileSync(p, 'utf-8')) : JSON.parse(fs.readFileSync(p, 'utf-8'));
+    const normalizePath = path.resolve(process.cwd(), (`__fixtures__/${name}`));
+    return extension !== '.json' ? yaml.load(fs.readFileSync(normalizePath, 'utf-8')) : JSON.parse(fs.readFileSync(normalizePath, 'utf-8'));
 };
+
+console.log(parser('f1.json'));
 
 export default parser;
